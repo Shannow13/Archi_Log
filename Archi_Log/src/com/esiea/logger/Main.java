@@ -32,7 +32,12 @@ public class Main {
 		Properties prop = load("config.properties");
 		
 		System.out.println("filepath : " + prop.getProperty("filepath"));
-		System.out.println("State : "+ prop.getProperty("state"));
+		System.out.println("State : "+ prop.getProperty("State"));
+		
+		
+		new Logger(Main.class);
+		new Logger(Main.class, prop.getProperty("state"));
+		
 		
 		}catch(IOException ex){
 			ex.printStackTrace();
@@ -45,8 +50,7 @@ public class Main {
 		*/
 		
 	
-		new Logger(Main.class);
-		new Logger(Main.class, 1);
+	
 	}
 	
 

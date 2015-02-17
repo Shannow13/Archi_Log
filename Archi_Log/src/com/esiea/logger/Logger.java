@@ -7,7 +7,7 @@ public class Logger {
 
 
 	Class<?> MyClass;
-	int level; 
+	String level; 
 	
 	
 	
@@ -15,7 +15,7 @@ public class Logger {
 		this.MyClass = MyClass;
 	}
 	
-	public Logger(Class<?> MyClass, int level){
+	public Logger(Class<?> MyClass, String level){
 		this.MyClass = MyClass;
 		this.level = level;
 	}
