@@ -35,8 +35,8 @@ public class Main {
 		System.out.println("State : "+ prop.getProperty("State"));
 		
 		
-		new Logger(Main.class);
-		new Logger(Main.class, prop.getProperty("state"));
+		LoggerFactory.geLogger(Main.class);
+		LoggerFactory.geLogger(Main.class, prop.getProperty("state"));
 		
 		
 		}catch(IOException ex){
