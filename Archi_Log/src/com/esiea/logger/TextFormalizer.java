@@ -3,7 +3,7 @@ package com.esiea.logger;
 public class TextFormalizer {
 
 	public static String formalized(String string) {
-		// TODO Auto-generated method stub
+		// TODO attribut incomplet lors du push du 17/02 à 23h
 		return "wololo";
 	}
 
