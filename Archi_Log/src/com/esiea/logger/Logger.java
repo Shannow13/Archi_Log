@@ -1,9 +1,15 @@
 package com.esiea.logger;
 
+
+
 public class Logger {
+	
+
 
 	Class<?> MyClass;
 	int level; 
+	
+	
 	
 	public Logger(Class<?> MyClass){
 		this.MyClass = MyClass;
@@ -13,4 +19,7 @@ public class Logger {
 		this.MyClass = MyClass;
 		this.level = level;
 	}
+	
+	
+	
 }
