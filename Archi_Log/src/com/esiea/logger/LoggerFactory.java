@@ -13,7 +13,7 @@ public class LoggerFactory {
 	
 	
 	//Méthode qui charge le fichier de config. On peut la bouger ailleurs suivant l'architecture que l'on fait
-	 public static Properties load(String filename) throws IOException, FileNotFoundException{
+	 public static Properties pload(String filename) throws IOException, FileNotFoundException{
 	      Properties properties = new Properties();
 
 	      FileInputStream input = new FileInputStream(filename);
@@ -57,7 +57,7 @@ public class LoggerFactory {
 		State state = null;
 		
 		try{
-			Properties prop = load("config.properties");
+			Properties prop = pload("config.properties");
 			switch (prop.getProperty("state")){
 				case "DEBUG" :
 					state = DEBUG;
@@ -88,7 +88,7 @@ public class LoggerFactory {
 		State state = null;
 		
 		try{
-			Properties prop = load("config.properties");
+			Properties prop = pload("config.properties");
 			switch (string){
 				case "DEBUG" :
 					state = DEBUG;

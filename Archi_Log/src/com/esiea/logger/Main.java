@@ -32,7 +32,7 @@ public class Main {
 		Properties prop = load("config.properties");
 		
 		System.out.println("filepath : " + prop.getProperty("filepath"));
-		System.out.println("State : "+ prop.getProperty("State"));
+		System.out.println("State : "+ prop.getProperty("state"));
 		
 		
 		LoggerFactory.geLogger(Main.class);
