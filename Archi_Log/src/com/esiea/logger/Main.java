@@ -42,14 +42,7 @@ public class Main {
 		}catch(IOException ex){
 			ex.printStackTrace();
 		}
-		/*
-		System.out.println("Nique ta mère !");
-		System.out.println("Wololo!");
-		System.out.println("Jean-Abdul");
 		
-		*/
-		
-	
 	
 	}
 	

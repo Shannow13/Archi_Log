@@ -54,7 +54,7 @@ public class Logger {
 		
 		//TODO rajouter les infos de prio et de filename et mettre à jour les prototype dans TextFormalizer et LogWriter
 		
-		String toPrint = TextFormalizer.formalized(string);
+		String toPrint = TextFormalizer.formalized(string, level);
 		// Je ne l'ai pas appelé Writer direct parce qu'il existe déjà dans le java.io et ne correspond pas à ce qu'on veut faire
 		LogWriter.write(toPrint);
 	}
