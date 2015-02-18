@@ -58,7 +58,7 @@ public class LoggerFactory {
 		
 		try{
 			Properties prop = load("config.properties");
-			switch (prop.getProperty("State")){
+			switch (prop.getProperty("state")){
 				case "DEBUG" :
 					state = DEBUG;
 					break;
