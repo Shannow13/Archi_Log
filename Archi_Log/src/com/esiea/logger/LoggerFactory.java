@@ -9,7 +9,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+
 public class LoggerFactory {
+	
 	
 	
 	//Méthode qui charge le fichier de config. On peut la bouger ailleurs suivant l'architecture que l'on fait
