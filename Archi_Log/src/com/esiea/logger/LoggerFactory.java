@@ -78,6 +78,7 @@ public class LoggerFactory {
 		}catch(IOException ex){
 			ex.printStackTrace();
 		}
+		//System.out.println("State received:"+state.toString());
 		
 		return state;
 	}
