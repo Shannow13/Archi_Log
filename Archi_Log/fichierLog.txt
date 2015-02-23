@@ -1,1 +1,5 @@
 [Logger.ERROR] [2015/1/23-2:25] [Main] Wololo
+[Logger.ERROR] [2015/1/23-2:32] [Main] Wololo
+[Logger.ERROR] [2015/1/23-2:35] [Main] error
+[Logger.DEBUG] [2015/1/23-2:35] [Main] debug
+[Logger.ERROR] [2015/1/23-2:35] [Main] error

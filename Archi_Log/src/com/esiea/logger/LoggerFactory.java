@@ -112,7 +112,7 @@ public class LoggerFactory {
 		
 		try{
 			Properties prop = pload("config.properties");
-			switch (string){
+			switch (string.toUpperCase()){
 				case "DEBUG" :
 					state = DEBUG;
 					prop.setProperty("state", "DEBUG");

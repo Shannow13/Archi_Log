@@ -119,12 +119,13 @@ public class Main {
 		
 		//System.out.println("test");
 		
-		Logger testLog = LoggerFactory.getLogger(Main.class);
+		Logger testLog = LoggerFactory.getLogger(Main.class, "debug");
 		//LoggerFactory.getLogger(Main.class, prop.getProperty("state"));
 		
 		//System.out.println("test ok");
 		
-		testLog.error("Wololo");
+		testLog.debug("debug");
+		testLog.error("error");
 		
 		}catch(IOException ex){
 			ex.printStackTrace();
