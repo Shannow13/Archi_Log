@@ -63,6 +63,7 @@ public class LoggerFactory {
 			switch (prop.getProperty("state")){
 				case "DEBUG" :
 					state = DEBUG;
+					System.out.println(state);
 					break;
 					
 				case "INFO" :

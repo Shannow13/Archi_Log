@@ -10,13 +10,11 @@ import java.util.Date;
 
 public class Main {
 	
-	/*Méthode de connectio à la base de donnée. Elle prend en paramètre le "nom" du plugin JDBC associé à la base de donnée souhaitée 
-	et l'url de connexion.*/
+
 	
-	public static void insertLog(String nameJDBC, String url, String date, String level, String message){
+	private static void insertLog(String nameJDBC, String url, String date, String level, String message){
 		
 		 Connection c = null;
-		 Statement stmt = null;
 		    try {
 		      Class.forName(nameJDBC);
 		      c = DriverManager.getConnection(url);
@@ -39,6 +37,9 @@ public class Main {
 		    System.out.println("Data Inserted Succesfully");
 		
 	}
+	
+	/*Méthode de connection à la base de donnée. Elle prend en paramètre le "nom" du plugin JDBC associé à la base de donnée souhaitée 
+	et l'url de connexion.*/
 	
 	public static void connection (String nameJDBC, String url){
 		  Connection c = null;
