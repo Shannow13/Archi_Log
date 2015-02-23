@@ -3,3 +3,11 @@
 [Logger.ERROR] [2015/1/23-2:35] [Main] error
 [Logger.DEBUG] [2015/1/23-2:35] [Main] debug
 [Logger.ERROR] [2015/1/23-2:35] [Main] error
+[Logger.DEBUG] [2015/02/23 14:44:34] [Main] debug
+[Logger.ERROR] [2015/02/23 14:44:34] [Main] error
+[Logger.DEBUG] [2015/02/23 14:44:48] [Main] debug
+[Logger.ERROR] [2015/02/23 14:44:48] [Main] error
+[Logger.DEBUG] [2015/02/23 14:44:55] [Main] debug
+[Logger.ERROR] [2015/02/23 14:44:55] [Main] error
+[Logger.DEBUG] [2015/02/23 14:45:08] [Main] debug
+[Logger.ERROR] [2015/02/23 14:45:08] [Main] error
