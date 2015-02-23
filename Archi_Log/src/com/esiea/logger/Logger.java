@@ -30,21 +30,21 @@ public class Logger {
 
 	public void debug(String string){
 		if(level.ordinal() >= DEBUG.ordinal()){
-			print(string);
+			print("logger.debug : "+string);
 		}	
 	}
 	
 	
 	public void info(String string){
 		if(level.ordinal() >= INFO.ordinal()){
-			print(string);
+			print("logger.info : "+string);
 		}	
 	}
 	
 	
 	public void error(String string){
 		if(level.ordinal() >= ERROR.ordinal()){
-			print(string);
+			print("logger.error : "+string);
 		}	
 	}
 	
@@ -54,7 +54,7 @@ public class Logger {
 		
 		//TODO rajouter les infos de prio et de filename et mettre à jour les prototype dans TextFormalizer et LogWriter
 		
-		String toPrint = TextFormalizer.formalized(string, level);
+		String toPrint = TextFormalizer.formalized(string, level, MyClass);
 		// Je ne l'ai pas appelé Writer direct parce qu'il existe déjà dans le java.io et ne correspond pas à ce qu'on veut faire
 		LogWriter.write(toPrint);
 	}

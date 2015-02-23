@@ -117,8 +117,8 @@ public class Main {
 		//Ajout d'un message test
 		insertLog(prop.getProperty("nameJDBC"), prop.getProperty("url"),date, prop.getProperty("state"),test);
 		
-		LoggerFactory.geLogger(Main.class);
-		LoggerFactory.geLogger(Main.class, prop.getProperty("state"));
+		LoggerFactory.getLogger(Main.class);
+		LoggerFactory.getLogger(Main.class, prop.getProperty("state"));
 		
 		
 		}catch(IOException ex){

@@ -5,7 +5,7 @@ import java.util.Calendar;
 
 public class TextFormalizer {
 
-	public static String formalized(String string, State state) {
+	public static String formalized(String string, State state, Class<?> myClass) {
 		
 		//récupération de la date
 		Calendar cal = Calendar.getInstance();		

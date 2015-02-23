@@ -36,7 +36,7 @@ public class LoggerFactory {
 	
 	
 	// On créer l'instance du Logger avec le niveau de priorité indiqué dans les properties
-	public static Logger geLogger(Class<?> MyClass){
+	public static Logger getLogger(Class<?> MyClass){
 		
 		State state = getState();
 		
@@ -45,7 +45,7 @@ public class LoggerFactory {
 	
 	
 	// On créer l'instance du Logger avec le niveau de priorité indiqué par l'utilisateur et on met à jour le fichier properties
-	public static Logger geLogger(Class<?> MyClass, String string){
+	public static Logger getLogger(Class<?> MyClass, String string){
 		
 		State state = getState(string);
 		
