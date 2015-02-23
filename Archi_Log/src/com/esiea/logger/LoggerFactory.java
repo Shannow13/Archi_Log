@@ -39,17 +39,36 @@ public class LoggerFactory {
 	public static Logger getLogger(Class<?> MyClass){
 		
 		State state = getState();
+		String fileName = null;
 		
-		return(new Logger(MyClass, state));
+		try {
+			fileName = getFileName();
+		} catch (IOException e) {
+			System.out.println("Probleme avec le filepath dans properties");
+			e.printStackTrace();
+			return null;
+		}
+		
+		//System.out.println("getLogger");
+		
+		return(new Logger(MyClass, state,fileName));
 	}
-	
-	
+
 	// On créer l'instance du Logger avec le niveau de priorité indiqué par l'utilisateur et on met à jour le fichier properties
 	public static Logger getLogger(Class<?> MyClass, String string){
 		
 		State state = getState(string);
+		String fileName = null;
 		
-		return(new Logger(MyClass, state));
+		try {
+			fileName = getFileName();
+		} catch (IOException e) {
+			System.out.println("Probleme avec le filepath dans properties");
+			e.printStackTrace();
+			return null;
+		}
+		
+		return(new Logger(MyClass, state,fileName));
 	}
 	
 	
@@ -63,7 +82,7 @@ public class LoggerFactory {
 			switch (prop.getProperty("state")){
 				case "DEBUG" :
 					state = DEBUG;
-					System.out.println(state);
+					//System.out.println(state);
 					break;
 					
 				case "INFO" :
@@ -113,13 +132,29 @@ public class LoggerFactory {
 					System.out.println("La priorité indiqué n'est pas conforme, utilisation de la priorité indiqué dans le fichier properties");
 					state = getState();
 					break;
-			
 			}
 			
 		}catch(IOException ex){
 			ex.printStackTrace();
 		}
 		
+		//System.out.println("State : " + state);
+		
 		return state;
 	}
+	
+	
+	
+	private static String getFileName() throws IOException {
+		
+		String fileName = null;
+		
+		Properties prop = pload("config.properties");
+		fileName = prop.getProperty("filepath");
+		
+		return fileName;
+	}
+	
+	
+	
 }

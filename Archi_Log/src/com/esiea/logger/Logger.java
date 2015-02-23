@@ -17,47 +17,47 @@ public class Logger {
 	private State level;
 	
 	
-	// 
-	public Logger(Class<?> MyClass){
-		this.setMyClass(MyClass);
-	}
 	
-	public Logger(Class<?> MyClass, State level){
+	public Logger(Class<?> MyClass, State level, String fileName){
 		this.setMyClass(MyClass);
 		this.setLevel(level);
+		this.setFileName(fileName);
+		//System.out.println("Logger done " + MyClass.getSimpleName()+ " " + level);
 	}
 	
 
 	public void debug(String string){
-		if(level.ordinal() >= DEBUG.ordinal()){
-			print("logger.debug : "+string);
+		if(level.ordinal() <= DEBUG.ordinal()){
+			print(string, DEBUG);
 		}	
 	}
 	
 	
 	public void info(String string){
-		if(level.ordinal() >= INFO.ordinal()){
-			print("logger.info : "+string);
+		if(level.ordinal() <= INFO.ordinal()){
+			print(string, INFO);
 		}	
 	}
 	
 	
 	public void error(String string){
-		if(level.ordinal() >= ERROR.ordinal()){
-			print("logger.error : "+string);
+		if(level.ordinal() <= ERROR.ordinal()){
+			//System.out.println("Ordinal ok");
+			print(string, ERROR);
 		}	
 	}
 	
 	
 	
-	private void print(String string){
+	private void print(String string, State level){
 		
 		//TODO rajouter les infos de prio et de filename et mettre à jour les prototype dans TextFormalizer et LogWriter
 		
 		String toPrint = TextFormalizer.formalized(string, level, MyClass);
 		// Je ne l'ai pas appelé Writer direct parce qu'il existe déjà dans le java.io et ne correspond pas à ce qu'on veut faire
-		LogWriter.write(toPrint);
+		LogWriter.write(toPrint, fileName);
 	}
+	
 	
 	// Getter et setter pour tous les attributs, fait en automatique par eclipse
 	public State getLevel() {

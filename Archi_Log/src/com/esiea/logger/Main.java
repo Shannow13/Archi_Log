@@ -117,9 +117,14 @@ public class Main {
 		//Ajout d'un message test
 		insertLog(prop.getProperty("nameJDBC"), prop.getProperty("url"),date, prop.getProperty("state"),test);
 		
-		LoggerFactory.getLogger(Main.class);
-		LoggerFactory.getLogger(Main.class, prop.getProperty("state"));
+		//System.out.println("test");
 		
+		Logger testLog = LoggerFactory.getLogger(Main.class);
+		//LoggerFactory.getLogger(Main.class, prop.getProperty("state"));
+		
+		//System.out.println("test ok");
+		
+		testLog.error("Wololo");
 		
 		}catch(IOException ex){
 			ex.printStackTrace();

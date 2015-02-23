@@ -17,7 +17,7 @@ public class TextFormalizer {
 		String date = new String(year+"/"+month+"/"+day+"-"+hour+":"+minute);
 		
 		//Formattage de la string
-		String formattedString = new String("[Logger."+state+"] ["+date+"] "+string);
+		String formattedString = new String("[Logger."+state+"] ["+date+"] ["+ myClass.getSimpleName() +"] "+string);
 		
 		//System.out.println(formattedString);
 		

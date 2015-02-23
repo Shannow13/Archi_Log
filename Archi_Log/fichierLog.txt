@@ -1,0 +1,1 @@
+[Logger.ERROR] [2015/1/23-2:25] [Main] Wololo
