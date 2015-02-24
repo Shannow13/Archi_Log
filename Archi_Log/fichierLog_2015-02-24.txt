@@ -1,0 +1,2 @@
+[Logger.DEBUG] [2015/02/24 19:30:39] [Main] debug
+[Logger.ERROR] [2015/02/24 19:30:39] [Main] error

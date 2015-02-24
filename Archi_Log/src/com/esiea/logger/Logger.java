@@ -51,8 +51,6 @@ public class Logger {
 	
 	private void print(String string, State level){
 		
-		//TODO rajouter les infos de prio et de filename et mettre à jour les prototype dans TextFormalizer et LogWriter
-		
 		String toPrint = TextFormalizer.formalized(string, level, MyClass);
 		// Je ne l'ai pas appelé Writer direct parce qu'il existe déjà dans le java.io et ne correspond pas à ce qu'on veut faire
 		LogWriter.write(toPrint, fileName);
@@ -65,7 +63,6 @@ public class Logger {
 	}
 
 	public void setLevel(State level) {
-		// TODO MàJ les properties
 		this.level = level;
 	}
 
