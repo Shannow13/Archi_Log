@@ -7,12 +7,38 @@ import static com.esiea.logger.State.INFO;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 import java.util.Properties;
 
 
 public class LoggerFactory {
 	
-	
+	//Méthode qui crée la table LOG dans la BDD
+	public static void createTable(String nameJDBC, String url){
+		
+		 Connection c = null;
+		 Statement stmt = null;
+		    try {
+		      Class.forName(nameJDBC);
+		      c = DriverManager.getConnection(url);
+		      System.out.println("Opened database successfully");
+
+		      stmt = c.createStatement();
+		      String sql = "CREATE TABLE IF NOT EXISTS LOG " +
+		                   "(DATE			TEXT     NOT NULL," +
+		                   " TYPE           TEXT    NOT NULL, " + 
+		                   "MESSAGE			TEXT 	NOT NULL)"; 
+		      stmt.executeUpdate(sql);
+		      stmt.close();
+		      c.close();
+		    } catch ( Exception e ) {
+		      System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+		      System.exit(0);
+		    }
+		    System.out.println("Table created successfully");
+	 }
 	
 	//Méthode qui charge le fichier de config. On peut la bouger ailleurs suivant l'architecture que l'on fait
 	 public static Properties pload(String filename) throws IOException, FileNotFoundException{
@@ -41,6 +67,7 @@ public class LoggerFactory {
 		State state = getState();
 		String fileName = null;
 		
+		
 		try {
 			fileName = getFileName();
 		} catch (IOException e) {
@@ -57,11 +84,14 @@ public class LoggerFactory {
 	// On créer l'instance du Logger avec le niveau de priorité indiqué par l'utilisateur et on met à jour le fichier properties
 	public static Logger getLogger(Class<?> MyClass, String string){
 		
+
 		State state = getState(string);
 		String fileName = null;
 		
 		try {
 			fileName = getFileName();
+			Properties prop = pload("config.properties");
+			createTable(prop.getProperty("nameJDBC"), prop.getProperty("url"));
 		} catch (IOException e) {
 			System.out.println("Probleme avec le filepath dans properties");
 			e.printStackTrace();

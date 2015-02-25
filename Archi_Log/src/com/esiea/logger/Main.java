@@ -12,7 +12,7 @@ public class Main {
 	
 
 	
-	private static void insertLog(String nameJDBC, String url, String date, String level, String message){
+/*	private static void insertLog(String nameJDBC, String url, String date, String level, String message){
 		
 		 Connection c = null;
 		    try {
@@ -37,11 +37,11 @@ public class Main {
 		    System.out.println("Data Inserted Succesfully");
 		
 	}
-	
+	*/
 	/*Méthode de connection à la base de donnée. Elle prend en paramètre le "nom" du plugin JDBC associé à la base de donnée souhaitée 
 	et l'url de connexion.*/
 	
-	public static void connection (String nameJDBC, String url){
+	/*public static void connection (String nameJDBC, String url){
 		  Connection c = null;
 		    try {
 		      Class.forName(nameJDBC);
@@ -52,8 +52,8 @@ public class Main {
 		    }
 		    System.out.println("Opened database successfully");
 		}
-	
-	public static void createTable(String nameJDBC, String url){
+	*/
+	/*public static void createTable(String nameJDBC, String url){
 		
 		 Connection c = null;
 		 Statement stmt = null;
@@ -76,7 +76,7 @@ public class Main {
 		    }
 		    System.out.println("Table created successfully");
 	 }
-
+*/
 	
 	//Méthode qui charge le fichier de config. On peut la bouger ailleurs suivant l'architecture que l'on fait
 	 public static Properties load(String filename) throws IOException, FileNotFoundException{
@@ -103,19 +103,19 @@ public class Main {
 		Properties prop = load("config.properties");
 		String test = "Ceci est un test";
 		Date dNow = new Date( );
-	    SimpleDateFormat ft = new SimpleDateFormat ("E yyyy.MM.dd 'at' hh:mm:ss a zzz");
+	    SimpleDateFormat ft = new SimpleDateFormat ("yyyy/MM/dd HH:mm:ss");
 	    String date = ft.format(dNow);
 	  
-		System.out.println("filepath : " + prop.getProperty("filepath"));
-		System.out.println("State : "+ prop.getProperty("state"));
+		//System.out.println("filepath : " + prop.getProperty("filepath"));
+		//System.out.println("State : "+ prop.getProperty("state"));
 		
 		//Connexion à la base
-		connection(prop.getProperty("nameJDBC"), prop.getProperty("url"));
+		//connection(prop.getProperty("nameJDBC"), prop.getProperty("url"));
 		//Création de la Table LOG
-		createTable(prop.getProperty("nameJDBC"), prop.getProperty("url"));
+		//createTable(prop.getProperty("nameJDBC"), prop.getProperty("url"));
 		
 		//Ajout d'un message test
-		insertLog(prop.getProperty("nameJDBC"), prop.getProperty("url"),date, prop.getProperty("state"),test);
+		//insertLog(prop.getProperty("nameJDBC"), prop.getProperty("url"),date, prop.getProperty("state"),test);
 		
 		//System.out.println("test");
 		

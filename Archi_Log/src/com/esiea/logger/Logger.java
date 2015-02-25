@@ -4,6 +4,15 @@ import static com.esiea.logger.State.DEBUG;
 import static com.esiea.logger.State.ERROR;
 import static com.esiea.logger.State.INFO;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Properties;
+
 
 public class Logger {
 	
@@ -26,21 +35,21 @@ public class Logger {
 	}
 	
 
-	public void debug(String string){
+	public void debug(String string) throws FileNotFoundException, IOException{
 		if(level.ordinal() <= DEBUG.ordinal()){
 			print(string, DEBUG);
 		}	
 	}
 	
 	
-	public void info(String string){
+	public void info(String string) throws FileNotFoundException, IOException{
 		if(level.ordinal() <= INFO.ordinal()){
 			print(string, INFO);
 		}	
 	}
 	
 	
-	public void error(String string){
+	public void error(String string) throws FileNotFoundException, IOException{
 		if(level.ordinal() <= ERROR.ordinal()){
 			//System.out.println("Ordinal ok");
 			print(string, ERROR);
@@ -49,13 +58,44 @@ public class Logger {
 	
 	
 	
-	private void print(String string, State level){
+	private void print(String string, State level) throws FileNotFoundException, IOException{
 		
+		String state = level.toString();
+		Date dNow = new Date( );
+	    SimpleDateFormat ft = new SimpleDateFormat ("yyyy/MM/dd HH:mm:ss");
+	    String date = ft.format(dNow);
+		Properties prop = LoggerFactory.pload("config.properties");
 		String toPrint = TextFormalizer.formalized(string, level, MyClass);
+		insertLog(prop.getProperty("nameJDBC"), prop.getProperty("url"),date, state,string);
+
 		// Je ne l'ai pas appelé Writer direct parce qu'il existe déjà dans le java.io et ne correspond pas à ce qu'on veut faire
 		LogWriter.write(toPrint, fileName);
 	}
-	
+	private static void insertLog(String nameJDBC, String url, String date, String level, String message){
+		
+		 Connection c = null;
+		    try {
+		      Class.forName(nameJDBC);
+		      c = DriverManager.getConnection(url);
+		      System.out.println("Opened database successfully");
+		     
+		      String sql = "INSERT INTO LOG " +
+		                   "VALUES (?, ?, ?)"; 
+		      PreparedStatement stmnt = c.prepareStatement(sql);
+		      stmnt.setString(1, date);
+		      stmnt.setString(2, level);
+		      stmnt.setString(3, message);
+		      System.out.println(sql);
+		      stmnt.executeUpdate();
+		      stmnt.close();
+		      c.close();
+		    } catch ( Exception e ) {
+		      System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+		      System.exit(0);
+		    }
+		    System.out.println("Data Inserted Succesfully");
+		
+	}
 	
 	// Getter et setter pour tous les attributs, fait en automatique par eclipse
 	public State getLevel() {
