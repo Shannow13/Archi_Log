@@ -2,8 +2,8 @@
 
 
 Framework de logging créé par Christophe ARRESTIER, Thibaut DA SILVA et Pierre-Jean MESCLE élèves en 4ème année à l’ESIEA.
-Pour l’installation de ce framework il suffit d’ajouter la jar au build path de votre projet.
-ATTENTION !!
+
+Actuellement nous avons un soucis avec le fichier config.properties lorsque nous compressons le framework en .jar. En effet lorsque le .jar est ajouté a un autre projet et que nous essayons d'éxecuter le programme il y a une erreur FileNotFoundException nous spécifaitn que le fichier config.properties est introuvable.
 
 Pour l’écriture des logs en base de données un plugin JDBC est requis ainsi que le SGBD correspondant.
 
