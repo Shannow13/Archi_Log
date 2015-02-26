@@ -98,7 +98,6 @@ public class Logger {
 		    try {
 		      Class.forName(nameJDBC);
 		      c = DriverManager.getConnection(url);
-		      System.out.println("Opened database successfully");
 		     
 		      String sql = "INSERT INTO LOG " +
 		                   "VALUES (?, ?, ?)"; 
@@ -106,7 +105,6 @@ public class Logger {
 		      stmnt.setString(1, date);
 		      stmnt.setString(2, level);
 		      stmnt.setString(3, message);
-		      System.out.println(sql);
 		      stmnt.executeUpdate();
 		      stmnt.close();
 		      c.close();
@@ -114,7 +112,6 @@ public class Logger {
 		      System.err.println( e.getClass().getName() + ": " + e.getMessage() );
 		      System.exit(0);
 		    }
-		    System.out.println("Data Inserted Succesfully");
 		
 	}
 	
