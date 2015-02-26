@@ -12,10 +12,9 @@ public class TextFormalizer {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
 		
-		//Formattage de la string
+		//Formatage de la string
 		String formattedString = new String("[Logger."+state+"] ["+dateFormat.format(date)+"] ["+ myClass.getSimpleName() +"] "+string);
 		
-		//System.out.println(formattedString);
 		
 		return formattedString;
 	}

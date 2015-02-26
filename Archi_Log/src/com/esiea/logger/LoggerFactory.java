@@ -16,7 +16,7 @@ import java.util.Properties;
 public class LoggerFactory {
 	
 	//Méthode qui crée la table LOG dans la BDD
-	public static void createTable(String nameJDBC, String url){
+	private static void createTable(String nameJDBC, String url){
 		
 		 Connection c = null;
 		 Statement stmt = null;
@@ -76,9 +76,7 @@ public class LoggerFactory {
 			return null;
 		}
 		
-		//System.out.println("getLogger");
-		
-		return(new Logger(MyClass, state,fileName));
+		return(new Logger(MyClass, state, fileName));
 	}
 
 	// On créer l'instance du Logger avec le niveau de priorité indiqué par l'utilisateur et on met à jour le fichier properties

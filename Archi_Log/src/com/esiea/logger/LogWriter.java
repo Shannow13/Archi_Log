@@ -18,14 +18,12 @@ public class LogWriter {
 	//Ecriture dans un fichier texte
 	public static void write(String toPrint, String fileName) {
 		
-		//System.out.println(toPrint);
+		System.out.println(toPrint);
 		
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = new Date();
 		
 		fileName = fileName.concat("_"+dateFormat.format(date)+".txt");
-		
-		System.out.println(fileName);
 		
 		File file = new File(fileName);
 		try {

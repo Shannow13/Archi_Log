@@ -16,7 +16,7 @@ import java.util.Properties;
 public class Logger {
 	
 
-// Attributs dont on a besoin
+	// Attributs dont on a besoin
 	// La class d'appel
 	private Class<?> MyClass;
 	// Le chemin de fichier dans lequel on doit ecrire
