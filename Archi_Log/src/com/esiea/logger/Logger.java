@@ -23,14 +23,15 @@ public class Logger {
 	private String fileName;
 	// Le  niveau de priorité pour les messages a afficher
 	private State level;
-	
-	
-	
-	public Logger(Class<?> MyClass, State level, String fileName){
+	// Boolean pour savoir si on enregistre ou non dans un fichier
+	boolean fileOk;
+
+
+	public Logger(Class<?> MyClass, State level, String fileName, boolean fileOk){
 		this.setMyClass(MyClass);
 		this.setLevel(level);
 		this.setFileName(fileName);
-		//System.out.println("Logger done " + MyClass.getSimpleName()+ " " + level);
+		this.setFileWritting(fileOk);
 	}
 	
 
@@ -71,7 +72,11 @@ public class Logger {
 		insertLog(prop.getProperty("nameJDBC"), prop.getProperty("url"),date, state,string);
 
 		// Je ne l'ai pas appelé Writer direct parce qu'il existe déjà dans le java.io et ne correspond pas à ce qu'on veut faire
-		LogWriter.write(toPrint, fileName);
+		if(this.isFileWritting()){
+			LogWriter.write(toPrint, fileName);
+		}else{
+			LogWriter.write(toPrint);
+		}
 		
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -132,5 +137,11 @@ public class Logger {
 		this.fileName = fileName;
 	}
 	
+	public void setFileWritting(boolean fileOk) {
+		this.fileOk = fileOk;
+	}
+	public boolean isFileWritting() {
+		return this.fileOk;
+	}
 	
 }

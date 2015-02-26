@@ -62,7 +62,7 @@ public class LoggerFactory {
 	
 	
 	// On créer l'instance du Logger avec le niveau de priorité indiqué dans les properties
-	public static Logger getLogger(Class<?> MyClass){
+	public static Logger getLogger(Class<?> MyClass, boolean fileOk){
 		
 		State state = getState();
 		String fileName = null;
@@ -76,7 +76,7 @@ public class LoggerFactory {
 			return null;
 		}
 		
-		return(new Logger(MyClass, state, fileName));
+		return(new Logger(MyClass, state, fileName, fileOk));
 	}
 
 	// On créer l'instance du Logger avec le niveau de priorité indiqué par l'utilisateur et on met à jour le fichier properties
@@ -96,7 +96,7 @@ public class LoggerFactory {
 			return null;
 		}
 		
-		return(new Logger(MyClass, state,fileName));
+		return(new Logger(MyClass, state,fileName, true));
 	}
 	
 	

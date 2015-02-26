@@ -30,7 +30,7 @@ public class Main {
 	public static void main(String[] args) {
 	
 		
-		Logger log = LoggerFactory.getLogger(Main.class);
+		Logger log = LoggerFactory.getLogger(Main.class, true);
 		
 			log.debug("debug");
 			log.info("info");
