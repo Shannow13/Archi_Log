@@ -66,6 +66,7 @@ public class LoggerFactory {
 
 		try {
 			Properties prop = pload("config.properties");
+			prop.setProperty("filepath", fileName);
 			createTable(prop.getProperty("nameJDBC"), prop.getProperty("url"));
 		} catch (IOException e) {
 			System.out.println("Probleme avec le filepath dans properties");
