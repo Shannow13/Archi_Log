@@ -1,4 +1,0 @@
-[Logger.DEBUG] [2015/02/25 16:16:34] [Main] debug
-[Logger.ERROR] [2015/02/25 16:16:34] [Main] error
-[Logger.DEBUG] [2015/02/25 16:38:49] [Main] debug
-[Logger.ERROR] [2015/02/25 16:38:49] [Main] error
