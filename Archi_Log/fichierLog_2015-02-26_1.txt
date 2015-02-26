@@ -1,3 +1,6 @@
 [Logger.DEBUG] [2015/02/26 23:39:09] [Main] debug
 [Logger.INFO] [2015/02/26 23:39:10] [Main] info
 [Logger.ERROR] [2015/02/26 23:39:10] [Main] error
+[Logger.DEBUG] [2015/02/26 23:41:18] [Main] debug
+[Logger.INFO] [2015/02/26 23:41:18] [Main] info
+[Logger.ERROR] [2015/02/26 23:41:18] [Main] error

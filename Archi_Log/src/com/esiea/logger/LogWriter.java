@@ -34,7 +34,8 @@ public class LogWriter {
 
 
 		boolean write = false;
-
+		
+		// Mise en place de la rotation de fichier
 		 while(!write){
 		
 			 file = new File(fileToWrite);
@@ -89,6 +90,8 @@ public class LogWriter {
 		
 	}
 
+	
+	// Calcul du nombre de ligne dans le fichier
 	private static int lineNumber(FileReader fr) {
 		int count = 0;
 		
