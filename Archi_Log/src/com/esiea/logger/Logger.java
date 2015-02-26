@@ -25,13 +25,16 @@ public class Logger {
 	private State level;
 	// Boolean pour savoir si on enregistre ou non dans un fichier
 	boolean fileOk;
+	// Boolean pour savoir si on enregistre ou non dans une bdd
+	boolean dbOk;
 
 
-	public Logger(Class<?> MyClass, State level, String fileName, boolean fileOk){
+	public Logger(Class<?> MyClass, State level, String fileName, boolean fileOk, boolean dbOk){
 		this.setMyClass(MyClass);
 		this.setLevel(level);
 		this.setFileName(fileName);
 		this.setFileWritting(fileOk);
+		this.setDbWritting(dbOk);
 	}
 	
 
@@ -69,8 +72,11 @@ public class Logger {
 			prop = LoggerFactory.pload("config.properties");
 		
 		String toPrint = TextFormalizer.formalized(string, level, MyClass);
-		insertLog(prop.getProperty("nameJDBC"), prop.getProperty("url"),date, state,string);
-
+		
+		if(this.isDbWritting()){
+			insertLog(prop.getProperty("nameJDBC"), prop.getProperty("url"),date, state,string);
+		}
+		
 		// Je ne l'ai pas appelé Writer direct parce qu'il existe déjà dans le java.io et ne correspond pas à ce qu'on veut faire
 		if(this.isFileWritting()){
 			LogWriter.write(toPrint, fileName);
@@ -142,6 +148,14 @@ public class Logger {
 	}
 	public boolean isFileWritting() {
 		return this.fileOk;
+	}
+	
+	protected boolean isDbWritting() {
+		return dbOk;
+	}
+
+	protected void setDbWritting(boolean dbOk) {
+		this.dbOk = dbOk;
 	}
 	
 }
