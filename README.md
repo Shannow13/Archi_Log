@@ -24,6 +24,8 @@ L’initialisation du logger se fait de deux manière :
 			db : true pour écrire dans la base de données par défaut
 			
 
+Le fichier dans lequel seront sauvegarder les logs est un fichier rotatif de capacité et de date. Autrement dit, lorsque la date change un nouveau fichier avec la date courante spécifiée sera créer pour la suite des enregistrement. Aussi, lorsque le fichier courant auteint un certain nombre d'entrées, il sera créer un nouveau fichier pour enregistrer la suite des logs (en l'occurence 200 log).
+
 Enfin, lorsque vous souhaitez afficher vos logs il suffit d’utiliser les méthodes suivantes :
 
 	- monLog.debug(«votre message ») ;
