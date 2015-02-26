@@ -14,19 +14,13 @@ Ce framework gère actuellement 3 niveaux de log : Debug, Error et Info.
 L’initialisation du logger se fait de deux manière : 
 
 		- Logger monLog = LoggerFactory.getLogger(maClasse.class, String level, boolean file, boolean db);
-		- 
 			level : niveau d'affichage des log (debug, info, error)
-
 			file : true pour l'écriture dans le fichier par défaut
-			
 			db : true pour l'écriture dans la base de données par défaut
 			
 		- Logger monLog = LoggerFactory.getLogger(maClass.class, String level, String name, boolean db);
-		- 
 			level : niveau d'affichage des log (debug, info, error)
-
 			name : nom du fichier où écrire les logs
-			
 			db : true pour écrire dans la base de données par défaut
 			
 
