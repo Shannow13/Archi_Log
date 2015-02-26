@@ -3,10 +3,8 @@ package com.esiea.logger;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.sql.*;
-import java.text.SimpleDateFormat;
 import java.util.Properties;
-import java.util.Date;
+
 
 public class Main {
 	
@@ -99,37 +97,13 @@ public class Main {
 		
 	public static void main(String[] args) {
 	
-		try{
-		Properties prop = load("config.properties");
-		String test = "Ceci est un test";
-		Date dNow = new Date( );
-	    SimpleDateFormat ft = new SimpleDateFormat ("yyyy/MM/dd HH:mm:ss");
-	    String date = ft.format(dNow);
-	  
-		//System.out.println("filepath : " + prop.getProperty("filepath"));
-		//System.out.println("State : "+ prop.getProperty("state"));
 		
-		//Connexion à la base
-		//connection(prop.getProperty("nameJDBC"), prop.getProperty("url"));
-		//Création de la Table LOG
-		//createTable(prop.getProperty("nameJDBC"), prop.getProperty("url"));
+		Logger log = LoggerFactory.getLogger(Main.class);
 		
-		//Ajout d'un message test
-		//insertLog(prop.getProperty("nameJDBC"), prop.getProperty("url"),date, prop.getProperty("state"),test);
+			log.debug("debug");
+			log.info("info");
+			log.error("error");
 		
-		//System.out.println("test");
-		
-		Logger testLog = LoggerFactory.getLogger(Main.class, "debug");
-		//LoggerFactory.getLogger(Main.class, prop.getProperty("state"));
-		
-		//System.out.println("test ok");
-		
-		testLog.debug("debug");
-		testLog.error("error");
-		
-		}catch(IOException ex){
-			ex.printStackTrace();
-		}
 		
 	
 	}
