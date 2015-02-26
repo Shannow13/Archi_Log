@@ -106,7 +106,6 @@ public class LogWriter {
 			return -1;
 		}
 		
-		
 		 return count;
 	}
 
