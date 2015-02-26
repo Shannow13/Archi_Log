@@ -25,7 +25,7 @@ L’initialisation du logger se fait de deux manière :
 			
 
 Enfin, lorsque vous souhaitez afficher vos logs il suffit d’utiliser les méthodes suivantes :
-	monLog.debug(«votre message ») ;
-	monLog.info(« votre message ») ;
-	monLog.error(« votre message ») ;
+	- monLog.debug(«votre message ») ;
+	- monLog.info(« votre message ») ;
+	- monLog.error(« votre message ») ;
 
